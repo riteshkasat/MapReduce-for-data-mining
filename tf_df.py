@@ -19,7 +19,8 @@ def mapper(record):
     words = value.split()
     
     for w in words:
-      mr.emit_intermediate(w.lower(), key)
+      if(re.match('^[\w_]+$', w) is not None):
+        mr.emit_intermediate(w.lower(), key)
       
       
 def reducer(key, list_of_values):
