@@ -19,20 +19,24 @@ def mapper(record):
     words = value.split()
     
     for w in words:
-      d={}
-      d[key] = 1
-      mr.emit_intermediate(w, d)
+      mr.emit_intermediate(w.lower(), key)
       
-      print mr.intermediate;
-      print "*****************"
-
+      
 def reducer(key, list_of_values):
     # key: word
     # value: list of occurrence counts
-    total = 0
+    d={}
+    output_list =[]
     for v in list_of_values:
-      total += v
-    mr.emit((key, total))
+      d.setdefault(v,0)
+      d[v]+=1;
+    
+    for k,v in d.iteritems():
+      temp = [k,v]
+      output_list.append(temp)
+
+    final_list=[key,len(d),output_list]
+    mr.emit(final_list)
 
 # Do not modify below this line
 # =============================

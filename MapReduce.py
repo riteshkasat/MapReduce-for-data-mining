@@ -24,7 +24,7 @@ class MapReduce:
             record = json.loads(line)
             mapper(record)
 
-        sys.exit()
+        
         
         # for each key:valuelist in intermediate dictionary, call Reduce task
         for key in self.intermediate:
