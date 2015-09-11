@@ -1,4 +1,5 @@
 import json
+import sys
 
 class MapReduce:
     def __init__(self):
@@ -22,6 +23,8 @@ class MapReduce:
         for line in data:
             record = json.loads(line)
             mapper(record)
+
+        sys.exit()
         
         # for each key:valuelist in intermediate dictionary, call Reduce task
         for key in self.intermediate:
