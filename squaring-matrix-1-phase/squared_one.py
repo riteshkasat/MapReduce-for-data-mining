@@ -1,11 +1,10 @@
 import MapReduce
 import itertools
 from itertools import combinations
-import sys
 
 
 """
-Word Count Example in the Simple Python MapReduce Framework
+Squaring Matrix using MapReduce framework
 """
 
 mr = MapReduce.MapReduce()
@@ -14,18 +13,28 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-    for subset in itertools.combinations(record, 2):
-      mr.emit_intermediate(subset,1)
-
+	for k in range(5):
+		mr.emit_intermediate((record[0],k),('A',record[0],record[1],record[2]))
+		mr.emit_intermediate((k,record[1]),('B',record[0],record[1],record[2]))
+	
     
 def reducer(key, list_of_values):
+    d={}
+    for ele in list_of_values:
+    	if ele[0] == 'A':
+    		d.setdefault(ele[2],[])
+    		d[ele[2]].append(ele[3])
+
+    	if ele[0] == 'B':
+    		d.setdefault(ele[1],[])
+    		d[ele[1]].append(ele[3])
+
+    total=0
+    for k, v in d.iteritems():
+    		total += v[0]*v[1]		
     
-    total = 0
-    for v in list_of_values:
-      total += v
+    mr.emit(key+(total,))
     
-    if total>=100:
-      mr.emit((list(key)))
 
 # Do not modify below this line
 # =============================
