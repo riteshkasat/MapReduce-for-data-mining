@@ -1,6 +1,7 @@
 import MapReduce
 import itertools
 from itertools import combinations
+import sys
 
 
 """
@@ -30,9 +31,13 @@ def reducer(key, list_of_values):
     		d[ele[1]].append(ele[3])
 
     total=0
+
     for k, v in d.iteritems():
-    		total += v[0]*v[1]		
-    
+    	if len(v)<2:
+    		total+=0
+    	else:
+    		total+=v[0]*v[1]
+    	
     mr.emit(key+(total,))
     
 
