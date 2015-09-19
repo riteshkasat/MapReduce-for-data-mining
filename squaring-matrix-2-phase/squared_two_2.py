@@ -5,7 +5,7 @@ import sys
 
 
 """
-Squaring Matrix using MapReduce framework
+Phase2: Squaring Matrix using MapReduce framework
 """
 
 mr = MapReduce.MapReduce()
@@ -14,30 +14,15 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	mr.emit((record[0],record[1]),record[2])
+    key = (record[0],record[1])
+    mr.emit_intermediate(key,record[2])
 	
     
-def reducer(key, list_of_values):
-    d={}
+def reducer(key, list_of_values): 
+    sum=0
     for ele in list_of_values:
-    	if ele[0] == 'A':
-    		d.setdefault(ele[2],[])
-    		d[ele[2]].append(ele[3])
-
-    	if ele[0] == 'B':
-    		d.setdefault(ele[1],[])
-    		d[ele[1]].append(ele[3])
-
-    total=0
-
-    for k, v in d.iteritems():
-    	if len(v)<2:
-    		total+=0
-    	else:
-    		total+=v[0]*v[1]
-    	
-    mr.emit(key+(total,))
-    
+    	sum+=ele
+    mr.emit(key+(sum,))
 
 # Do not modify below this line
 # =============================

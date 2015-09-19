@@ -5,7 +5,7 @@ import sys
 
 
 """
-Squaring Matrix using MapReduce framework
+Squaring Matrix using MapReduce framework:Phase 1
 """
 
 mr = MapReduce.MapReduce()
@@ -14,7 +14,7 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	mr.emit_intermediate(record[1],('A',record[0],record[2]))
+    mr.emit_intermediate(record[1],('A',record[0],record[2]))
 	mr.emit_intermediate(record[0],('B',record[1],record[2]))
 	
     
