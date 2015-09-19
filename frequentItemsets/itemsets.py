@@ -5,7 +5,7 @@ import sys
 
 
 """
-Word Count Example in the Simple Python MapReduce Framework
+Program to compute frequent itemsets(k=2) in given transactions using Python MapReduce Framework
 """
 
 mr = MapReduce.MapReduce()
