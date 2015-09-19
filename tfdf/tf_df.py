@@ -3,7 +3,7 @@ import sys
 import re
 
 """
-Word Count Example in the Simple Python MapReduce Framework
+Program to calculate term frequency and document frequency using MapReduce
 """
 
 mr = MapReduce.MapReduce()
@@ -25,7 +25,7 @@ def mapper(record):
       
 def reducer(key, list_of_values):
     # key: word
-    # value: list of occurrence counts
+    # value: list of document identifiers
     d={}
     output_list =[]
     for v in list_of_values:
