@@ -19,33 +19,37 @@ def mapper(record):
 	
     
 def reducer(key, list_of_values):
-    d1={}
-    d2={}
+    a=[]
+    b=[]
+    dcombine={}
     for ele in list_of_values:
         if ele[0]=='A':
-            d1.setdefault(ele[0],[])
-            d1[ele[0]].append((ele[1],ele[2]));
+            a.append(ele);
 
         else:
-            d2.setdefault(ele[0],[])
-            d2[ele[0]].append((ele[1],ele[2]));
-    
-    
-    # a={}
-    # for e in d1:
-    #     a.setdefault(e[0],"")
-    #     a[e[0]]=e[0]
-    
-    a=d1['A']
-    b=d2['B']
+            b.append(ele);        
 
-    d3={}
-    for e in range(len(a)):
-        d3[a[e]]=(a[0],b[0])    
+        # if ele[0]=='A':
+        #     d1.setdefault(ele[0],[])
+        #     d1[ele[0]].append((ele[1],ele[2]));
 
-    print list_of_values
-    print ("d1",d1)
-    print ("d2",d2)
+        # else:
+        #     d2.setdefault(ele[0],[])
+        #     d2[ele[0]].append((ele[1],ele[2]));
+
+    for x in a:
+        for y in b:
+            print(key,x,y)
+
+    # b=d2['B']
+
+    # d3={}
+    # for e in range(len(a)):
+    #     d3[a[e]]=(a[0],b[0])    
+
+    # print list_of_values
+    # print ("d1",d1)
+    # print ("d2",d2)
        
     # 	if ele[0] == 'A':
     # 		d.setdefault(ele[2],[])
