@@ -25,50 +25,14 @@ def reducer(key, list_of_values):
     for ele in list_of_values:
         if ele[0]=='A':
             a.append(ele);
-
         else:
             b.append(ele);        
 
-        # if ele[0]=='A':
-        #     d1.setdefault(ele[0],[])
-        #     d1[ele[0]].append((ele[1],ele[2]));
-
-        # else:
-        #     d2.setdefault(ele[0],[])
-        #     d2[ele[0]].append((ele[1],ele[2]));
-
     for x in a:
         for y in b:
-            print(key,x,y)
+            mr.emit((x[1],y[1],x[2]*y[2]))
 
-    # b=d2['B']
-
-    # d3={}
-    # for e in range(len(a)):
-    #     d3[a[e]]=(a[0],b[0])    
-
-    # print list_of_values
-    # print ("d1",d1)
-    # print ("d2",d2)
-       
-    # 	if ele[0] == 'A':
-    # 		d.setdefault(ele[2],[])
-    # 		d[ele[2]].append(ele[3])
-
-    # 	if ele[0] == 'B':
-    # 		d.setdefault(ele[1],[])
-    # 		d[ele[1]].append(ele[3])
-
-    # total=0
-
-    # for k, v in d.iteritems():
-    # 	if len(v)<2:
-    # 		total+=0
-    # 	else:
-    # 		total+=v[0]*v[1]
-    	
-    # mr.emit(key+(total,))
-    sys.exit()
+    
 
 # Do not modify below this line
 # =============================

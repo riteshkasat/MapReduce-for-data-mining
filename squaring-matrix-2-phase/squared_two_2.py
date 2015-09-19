@@ -14,9 +14,7 @@ mr = MapReduce.MapReduce()
 # Do not modify above this line
 
 def mapper(record):
-	for k in range(5):
-		mr.emit_intermediate((record[0],k),('A',record[0],record[1],record[2]))
-		mr.emit_intermediate((k,record[1]),('B',record[0],record[1],record[2]))
+	mr.emit((record[0],record[1]),record[2])
 	
     
 def reducer(key, list_of_values):
