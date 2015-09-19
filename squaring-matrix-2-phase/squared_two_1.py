@@ -21,7 +21,6 @@ def mapper(record):
 def reducer(key, list_of_values):
     a=[]
     b=[]
-    dcombine={}
     for ele in list_of_values:
         if ele[0]=='A':
             a.append(ele);
