@@ -1,18 +1,14 @@
-# Project Title
-
-Term frequency and Document frequency
-
-## Getting Started
+# Term frequency and Document frequency
 
 This program uses MapReduce paradigm to calculate term frequency and document frequency for each word in the input dataset.
 
 
-## Prerequisites
+### Prerequisites
 
 This program runs on python 2.7
 
 
-## Input data
+### Input data
 
 This program comes with sample input dataset called books.json. Each line contains the name of the book followed by the contents of the book.
 
@@ -22,7 +18,7 @@ This program comes with sample input dataset called books.json. Each line contai
 
 
 
-## How to run this program
+### How to run this program
 
 Pass books.json as the command line parameter to tf_dy.py
 
@@ -30,7 +26,7 @@ Pass books.json as the command line parameter to tf_dy.py
 python tf_df.py books.json
 ```
 
-### Sample output
+#### Sample output
 
 
 ```
